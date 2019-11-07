@@ -166,6 +166,8 @@ public class Trimmer {
         } else if (promise != null) {
           WritableMap event = Arguments.createMap();
           event.putString("source", filePath);
+          File file = new File(pathToProcessingFile);
+          event.putInt("size", (int) file.length());
           promise.resolve(event);
         }
       }
